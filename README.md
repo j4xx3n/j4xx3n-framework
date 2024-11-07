@@ -2,8 +2,8 @@
 
 
 ## scripts
-enum.sh
-dork-signup.sh
+- enum.sh
+- dork-signup.sh
 
 ### enum.sh
 This bash script performs automated subdomain enumeration, directory crawling, and vulnerability scanning (LFI, XSS, IDOR) for one or more domains, saving the results in specified output files.
