@@ -1,7 +1,7 @@
 # j4xx3n's bug bounty recon framework
 
 
-# scripts
+**scripts**
 - enum.sh
 - dork-signup.sh
 
