@@ -1,11 +1,11 @@
 # j4xx3n's bug bounty recon framework
 
 
-## scripts
+# scripts
 - enum.sh
 - dork-signup.sh
 
-### enum.sh
+## enum.sh
 This bash script performs automated subdomain enumeration, directory crawling, and vulnerability scanning (LFI, XSS, IDOR) for one or more domains, saving the results in specified output files.
 
 **tools**
