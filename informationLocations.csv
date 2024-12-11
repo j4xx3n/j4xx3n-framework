@@ -1,0 +1,14 @@
+﻿Information,Location
+Root of all information,BugBounty
+Root for each program ,BugBounty/Example
+Root for recon information,BugBounty/Example/Recon
+Domain list,BugBounty/Example/Recon/domain.txt
+Domain list httpx scan,BugBounty/Example/Recon/domain-httpx.txt
+Subdomain list,BugBounty/Example/Recon/subdomain.txt
+Subdomain list httpx scan,BugBounty/Example/Recon/subdomain-httpx.txt
+Subdomains w/ 200 status code,BugBounty/Example/Recon/subdomain-200.txt
+Directory crawl for all subdomains,BugBounty/Example/Recon/subdomain-crawl.txt
+Root for GF recon,BugBounty/Example/Recon/GF
+Url's related to IDORs,BugBounty/Example/Recon/GF/idor
+Url's related to XSS,BugBounty/Example/Recon/GF/xss
+Url's related to LFI,BugBounty/Example/Recon/GF/lfi
