@@ -45,11 +45,10 @@ if [ -n "$list" ]; then
   cat $output/subdomain.txt | httpx-toolkit -td -ip -sc -cl -server | anew $output/subdomain-httpx.txt
 fi
 
-
 # directory enumeration
 cat $output/subdomain-httpx.txt | cut -d ' ' -f 1,2 | grep 200 | cut -d ' ' -f 1 | anew $output/subdomain-200.txt
-cat $output/subdomain-200.txt | hakrawler | anew $output/subdomain-crawl.txt
-cat $output/subdomain-200.txt |  waybackurls | anew $output/subdomain-crawl.txt
+cat $output/subdomain-httpx.txt | cut -d ' ' -f 1 | hakrawler | anew $output/subdomain-crawl.txt
+cat $output/subdomain-httpx.txt | cut -d ' ' -f 1 |  waybackurls | anew $output/subdomain-crawl.txt
 
 # vulnerability enumeration
 mkdir $output/GF
