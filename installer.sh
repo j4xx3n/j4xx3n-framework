@@ -17,12 +17,17 @@ mkdir -p ~/.gf
 git clone https://github.com/Sherlock297/gf_patterns.git
 mv gf_patterns/*.json ~/.gf
 rm -rf gf_patterns
-
+sudo apt install cmake -y
+git clone https://github.com/ameenmaali/urldedupe.git
+cd urldedupe
+cmake CMakeLists.txt
+make
+sudo cp urldedupe /usr/bin
 
 # Verify installations
 echo "=========================="
 echo "Verifying installations..."
-commands=( "anew" "httpx" "subfinder" "hakrawler" "waybackurls" "katana" "gf" )
+commands=( "anew" "httpx" "subfinder" "hakrawler" "waybackurls" "katana" "gf" "urldedupe" )
 for cmd in "${commands[@]}"; do
   if ! command -v $cmd &> /dev/null; then
     echo "$cmd installation failed. Please check manually."
