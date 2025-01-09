@@ -9,6 +9,7 @@ Subdomain list,BugBounty/Example/Domain/Recon/subdomain.txt
 Subdomain list httpx scan,BugBounty/Example/Domain/Recon/subdomain-httpx.txt
 Subdomains w/ 200 status code,BugBounty/Example/Domain/Recon/subdomain-200.txt
 Directory crawl for all subdomains,BugBounty/Example/Domain/Recon/subdomain-crawl.txt
+Found sign up pages,BugBounty/Example/Domain/Recon/signUp.txt
 Root for GF recon,BugBounty/Example/Domain/Recon/GF
 Url's related to IDORs,BugBounty/Example/Domain/Recon/GF/idor
 Url's related to XSS,BugBounty/Example/Domain/Recon/GF/xss
