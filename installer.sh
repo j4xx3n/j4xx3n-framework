@@ -12,13 +12,13 @@ sudo mv ~/go/bin/waybackurls /usr/bin
 go install github.com/projectdiscovery/katana/cmd/katana@latest
 sudo mv ~/go/bin/katana /usr/bin
 go install github.com/tomnomnom/gf@latest
-sudo mv gf ~/go/bin//usr/bin
+sudo mv ~/go/bin/gf /usr/bin
 mkdir -p ~/.gf
-#git clone https://github.com/Sherlock297/gf_patterns.git
+git clone https://github.com/Sherlock297/gf_patterns.git
 mv gf_patterns/*.json ~/.gf
 rm -rf gf_patterns
 sudo apt install cmake -y
-#git clone https://github.com/ameenmaali/urldedupe.git
+git clone https://github.com/ameenmaali/urldedupe.git
 cd urldedupe
 cmake CMakeLists.txt
 make
