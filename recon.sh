@@ -39,16 +39,16 @@ if [ -n "$domain" ]; then
 
   # directory enumeration
   cat $output/Recon/subdomain-httpx.txt | cut -d ' ' -f 1,2 | grep 200 | cut -d ' ' -f 1 | anew $output/Recon/subdomain-200.txt
-  cat $output/Recon/subdomain-httpx.txt | cut -d ' ' -f 1 | hakrawler | anew $output/Recon/subdomain-crawl.txt
-  cat $output/Recon/subdomain-httpx.txt | cut -d ' ' -f 1 |  waybackurls | anew $output/Recon/subdomain-crawl.txt
-  cat $output/Recon/subdomain-httpx.txt | cut -d ' ' -f 1 | katana -u subdomains_alive.txt -d 5 waybackarchive,commoncrawl,alienvault -kf -jc -fx -ef woff,css,png,svg,jpg,woff2,jpeg,gif,svg | anew $output/Recon/subdomain-crawl.txt
+  cat $output/Recon/subdomain-httpx.txt | | cut -d ' ' -f 1 | hakrawler | anew $output/Recon/subdomain-crawl.txt
+  cat $output/Recon/subdomain-httpx.txt | httpx-toolkit | waybackurls | anew $output/Recon/subdomain-crawl.txt
+  cat $output/Recon/subdomain-httpx.txt | httpx-toolkit | katana -d 5 waybackarchive,commoncrawl,alienvault -kf -jc -fx -ef woff,css,png,svg,jpg,woff2,jpeg,gif,svg | anew $output/Recon/subdomain-crawl.txt
 
   # vulnerable endpoint enumeration
   mkdir $output/Recon/GF
-  cat $output/Recon/subdomain-crawl.txt | gf lfi | anew $output/Recon/GF/lfi # LFI enumeration
-  cat $output/Recon/subdomain-crawl.txt | grep -E '.php|.asp|.aspx|.jspx|.jsp' | grep '=' | anew $output/Recon/GF/ci # command injection enumeration
-
-
+  cat $output/Recon/subdomain-crawl.txt | gf lfi | anew $output/Recon/GF/lfi.txt # LFI enumeration
+  cat $output/Recon/subdomain-crawl.txt | gf redirect | anew $output/Recon/GF/redirect.txt # Redirect enumneration
+  cat $output/Recon/subdomain-crawl.txt | grep -E '.php|.asp|.aspx|.jspx|.jsp' | grep '=' | anew $output/Recon/GF/ci.txt # command injection enumeration
+  cat $output/Recon/subdomain-crawl.txt | gf ssrf | anew $output/Recon/GF/ssrf.txt # SSRF enumeration
 fi
 
 
@@ -70,7 +70,10 @@ if [ -n "$list" ]; then
   # vulnerable endpoint enumeration
   mkdir -p $output/$domainLoop/Recon/GF
   cat $output/$domainLoop/Recon/subdomain-crawl.txt | gf lfi | anew $output/$domainLoop/Recon/GF/lfi # LFI enumeration
+  cat $output/$domainLoop/Recon/subdomain-crawl.txt | gf redirect | anew $output/$domainLoop/Recon/GF/redirect.txt # Redirect enumneration
   cat $output/$domainLoop/Recon/subdomain-crawl.txt | grep -E '.php|.asp|.aspx|.jspx|.jsp' | grep '=' | anew $output/$domainLoop/Recon/GF/ci; done
+  cat $output/$domainLoop/Recon/subdomain-crawl.txt | gf ssrf | anew $output/$domainLoop/Recon/GF/ssrf.txt # SSRF enumeration
+
 
 fi
 
